@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import {StyledButton, ButtonGroup} from "./components/styles/Button.styled";
+import {Container, LogoTitle, Rule, Title, FirstLetter} from "./components/styles/LandingPage.styled";
+import{GlobalStyles} from "./components/styles/GlobalStyles.styled";
+import styled from "styled-components";
+import { ReactComponent as Logo } from './images/EYE.svg';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+        <GlobalStyles/>
+        <LogoTitle>
+            <Logo height="14vmin" width="14vmin"/>
+            <Title><FirstLetter>C</FirstLetter>ontact</Title>
+        </LogoTitle>
+
+        <ButtonGroup>
+        <StyledButton
+            backgroundColor="#819FA6"
+            text={"Create a New Room"}
+        />
+        <StyledButton
+            backgroundColor="#C68B4F"
+            text={"Join an Existing Room"}
+        />
+        </ButtonGroup>
+
+        <Rule>How to Play</Rule>
+    </Container>
   );
 }
 
