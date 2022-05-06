@@ -11,7 +11,7 @@ export const StyledButton = styled(Button)`
   font-family: 'Poppins';
   color: #DAD4CB;
   cursor: pointer;
-  box-shadow: 0vw 0.5vmin 0.7vmin rgba(0, 0, 0, 0.1);
+  box-shadow: 0vw 0.8vmin 1vmin rgba(0, 0, 0, 0.1);
   
   &:hover {
     opacity: 70%;
