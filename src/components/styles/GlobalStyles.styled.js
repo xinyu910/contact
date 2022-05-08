@@ -7,5 +7,6 @@ export const GlobalStyles = createGlobalStyle`
     background-color: #3D4A55;
     font-family: 'Poppins';
     font-size: 1.2rem;
+    color: #DAD4CB;
   }
 `
