@@ -1,14 +1,12 @@
 import React from 'react';
 import { ReactComponent as LogoIcon } from './../images/EYE.svg';
 import styled from "styled-components";
-//import {Rule} from "./styles/Home.styled";
 
 const LogoStyle = styled.header`
-display: flex;
-align-items: center;
-column-gap: 1vmin;
-margin-left: 4vmin;
-margin-top: 4vmin;
+    display: flex;
+    align-items: center;
+    column-gap: 1vmin;
+    margin-left: 4vmin;
 `
 const Title = styled.h1`
   font-size: 3.5vmin;
@@ -27,23 +25,32 @@ const Rule = styled.div`
   color: #DAD4CB;
   text-decoration: underline;
   cursor: pointer;
-  position: relative;
-  float: right;
+  margin-right: 6vmin;
   &:hover {
     opacity: 70%;
   }
 `
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3vmin;
+`
+
+const Icon = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.3vmin;
+`
 
 export const Header = () => {
     return (
-        <div>
-          <LogoStyle>
+        <Container>
+            <LogoStyle>
+                <Icon><LogoIcon height="5vmin" width="8vmin"/></Icon>
+                <Title><FirstLetter>C</FirstLetter>ontact</Title>
+            </LogoStyle>
             <Rule>How to Play</Rule>
-            <LogoIcon height="7.5vmin" width="7.5vmin"/>
-            <Title><FirstLetter>C</FirstLetter>ontact</Title>
-          </LogoStyle>
-        </div>
-        
-        
+        </Container>
     );
 }

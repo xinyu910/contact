@@ -8,5 +8,6 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Poppins';
     font-size: 1.2rem;
     color: #DAD4CB;
+    min-height: 100vh;
   }
 `
