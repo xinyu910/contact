@@ -13,7 +13,6 @@ const Button = ({ className, text, onClick }) => {
 
 Button.propTypes = {
     text: PropTypes.string,
-    color: PropTypes.string,
     onClick: PropTypes.func,
 }
 

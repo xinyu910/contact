@@ -1,12 +1,14 @@
 import React from 'react';
 import { ReactComponent as LogoIcon } from './../images/EYE.svg';
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 const LogoStyle = styled.header`
-    display: flex;
-    align-items: center;
-    column-gap: 1vmin;
-    margin-left: 4vmin;
+  display: flex;
+  align-items: center;
+  column-gap: 1vmin;
+  margin-left: 4vmin;
+  cursor: pointer;
 `
 const Title = styled.h1`
   font-size: 3.5vmin;
@@ -44,9 +46,10 @@ const Icon = styled.div`
 `
 
 export const Header = () => {
+    const navigate = useNavigate();
     return (
         <Container>
-            <LogoStyle>
+            <LogoStyle onClick={() => {navigate("/")}}>
                 <Icon><LogoIcon height="5vmin" width="8vmin"/></Icon>
                 <Title><FirstLetter>C</FirstLetter>ontact</Title>
             </LogoStyle>
