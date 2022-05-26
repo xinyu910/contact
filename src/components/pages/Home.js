@@ -1,9 +1,9 @@
 import React from 'react';
-import {StyledButton, ButtonGroup} from "./../styles/Button.styled";
-import {Container, LogoTitle, Rule, Title, FirstLetter} from "./../styles/Home.styled";
-import{GlobalStyles} from "./../styles/GlobalStyles.styled";
+import {StyledButton, ButtonGroup} from "../styles/Button.styled";
+import {Container, LogoTitle, Rule, Title, FirstLetter} from "../styles/Home.styled";
+import{GlobalStyles} from "../styles/GlobalStyles.styled";
 import { ReactComponent as LogoIcon } from './../../images/EYE.svg';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
     const navigate = useNavigate();
