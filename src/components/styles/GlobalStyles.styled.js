@@ -9,5 +9,6 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 1.2rem;
     color: #DAD4CB;
     min-height: 100vh;
+    overflow: hidden;
   }
 `

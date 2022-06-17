@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponent as LogoIcon } from './../images/EYE.svg';
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const LogoStyle = styled.header`
   display: flex;

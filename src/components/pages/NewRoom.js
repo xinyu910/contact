@@ -11,8 +11,17 @@ import {useNavigate} from "react-router-dom";
 const Newroom = () => {
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
+    const [emptyName, setEmptyName] = useState(false);
     const handleNickName = (event) => {
         setUsername(event.target.value);
+    };
+
+    const handleFormSubmit = () => {
+        if (username === '') {
+            setEmptyName(true);
+        } else {
+            navigate(`/room/${makeRoomCode(5)}`, {state: {name: username, checkRoom: false}})
+        }
     };
     return (
         <div style={{overflow:"auto"}}>
@@ -23,12 +32,17 @@ const Newroom = () => {
                     <Form.Group className="mb-3">
                         <Form.Label>Nick Name</Form.Label>
                         <Form.Control
-                            required type="text"
+                            type="text"
                             size="lg"
                             style={{boxShadow: "inset 0.1vh 0.15vw 0.3vh rgba(0, 0, 0, 0.25)"}}
-                            value={username}
                             onChange={handleNickName}
                         />
+                        {emptyName &&
+                        <Form.Text
+                        style={{color: '#B36C48'}}>
+                            Please Enter Your Nick Name!
+                        </Form.Text>
+                        }
                     </Form.Group>
                     <Form.Group className="mb-3">
                         <Form.Label>Rounds to Play</Form.Label>
@@ -54,7 +68,8 @@ const Newroom = () => {
                             fontSize={"3vmin"}
                             margin={"2.3vh 0vh auto auto"}
                             color={'#FFFFFF'}
-                            onClick={() => {navigate(`/room/${makeRoomCode(5)}`, {state: {name: username}})}}
+                            type={"button"}
+                            onClick={handleFormSubmit}
                         >
                         </StyledButton>
                     </Form.Group>

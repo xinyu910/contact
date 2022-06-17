@@ -30,7 +30,7 @@ const Home = () => {
             width={"50vmin"}
             height={"10vmin"}
             fontSize={"3vmin"}
-            onClick={() => {navigate("/joinroom")}}
+            onClick={() => {navigate("/joinroom", {state: {full: false, invalid: false}})}}
         />
         </ButtonGroup>
 

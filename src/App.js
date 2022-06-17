@@ -4,6 +4,7 @@ import Newroom from "./components/pages/NewRoom";
 import Joinroom from "./components/pages/JoinRoom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Game from "./components/pages/Game";
+import React from 'react';
 
 function App() {
   return (

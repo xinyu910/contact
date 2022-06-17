@@ -3,7 +3,8 @@ const app = express();
 const http = require('http');
 const {Server} = require('socket.io');
 const cors = require('cors');
-const { addUser, removeUser, getUser, getUsersInRoom } = require('./users')
+const { addUser, removeUser, getUser, getUsersInRoom, checkRoom, roomCount } = require('./users');
+const { FOCUSABLE_SELECTOR } = require('@testing-library/user-event/dist/utils');
 app.use(cors());
 
 const PORT = process.env.PORT ?? 3001;
@@ -20,23 +21,28 @@ const io = new Server(server, {
 });
 
 io.on('connection', (socket) => {
-    socket.on('join', (payload, callback) => {
-        let numberOfUsersInRoom = getUsersInRoom(payload.room).length
-
+    const roomCheck = socket.handshake.query;
+    socket.on('join', (state, callback) => {
+        if (roomCheck.check === 'true') {
+            if (checkRoom(roomCheck.room) === false) {
+                return callback('Invalid Room')
+            }
+        }
         const { error, newUser} = addUser({
             id: socket.id,
-            name: payload.username,
-            room: payload.room
+            name: state.username,
+            room: state.room
         })
 
         if(error)
             return callback(error)
 
         socket.join(newUser.room)
-        console.log("user connected: ", newUser.username)
+        console.log("user connected: ", newUser.name)
+        console.log(roomCount())
+        console.log(getUsersInRoom(newUser.room))
 
         io.to(newUser.room).emit('roomData', {room: newUser.room, users: getUsersInRoom(newUser.room)})
-        socket.emit('currentUserData', {name: newUser.name})
         callback()
     });
 
